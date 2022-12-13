@@ -14,7 +14,7 @@ ul{
     list-style:none;
     margin-top: 12px;
 }
-li{
+.li-style{
     margin:12 0 0 0;
     padding:0;
     list-style:none;
@@ -22,16 +22,51 @@ li{
     font-weight: 400;
     font-size: 16px;
     display: inline-block;
+    cursor: pointer;
+    border:1px solid #5c5cff ;
+    padding: 8px 12px;
+    margin-right: 12px;
+    border-radius: 6px;     
+    opacity: 0;
+   
 }
+.fade-in{
+    opacity: 1;
+    transition: all 1s;
+}
+.fade-out{
+    opacity: 0;
+    transition: all 1s;
+}
+
+.del-btn-style{
+    background: #FFECEC;
+    border: none;
+    color: #DF1010;
+    margin-left:8px;
+    padding:4px 12px;
+    border-Radius:4px;
+    font-Family:"Roboto";
+    font-Weight:400px;
+    font-Size:14px;
+    cursor: pointer;
+    
+}
+
 ul li.done {
     text-decoration: line-through;
   }
+
 .img{
     margin-top: 320px;
     background-image: url(purplebg.png);
     background-size: cover;
     background-repeat: no-repeat ;
     height: 290px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
 }
 .container{
     display: flex;
@@ -44,6 +79,8 @@ ul li.done {
 .main{
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 10;
 }
 .container p{
     font-family: Roboto;

@@ -25,40 +25,36 @@
     var inputElement = document.getElementById("input");
     inputElement.addEventListener("keypress", onEnter);
     function onEnter(event) {
-        console.log(event);
         if(event.key === "Enter"){
             addTask()
         }
     }
+
     function addTask() {
       if (inputElement.value.length > 0) {
         var taskList = document.getElementById("task-list");
         var taskItems = document.createElement("li");
-        taskList.appendChild(taskItems);
+        taskItems.classList.add("li-style")
         taskItems.innerHTML = inputElement.value;
         inputElement.value = "";
+        taskList.appendChild(taskItems);     
+        setTimeout(() => {
+          taskItems.classList.add("fade-in")
+        }, 0);
         var delBtn = document.createElement("button");
-        taskItems.appendChild(delBtn);
         delBtn.innerHTML = "Delete";
-        var taskItemStyle = taskItems.style;
-        taskItemStyle.border = "1px solid #5c5cff"
-        taskItemStyle.padding = "8px 12px"
-        taskItemStyle.marginRight = "12px"
-        taskItemStyle.borderRadius = "6px"
-        var delBtnStyle = delBtn.style;
-        delBtnStyle.background = "#FFECEC";
-        delBtnStyle.border = "none";
-        delBtnStyle.color = "#DF1010";
-        delBtnStyle.marginLeft = "8px"
-        delBtnStyle.padding = "4px 12px"
-        delBtnStyle.borderRadius = "4px"
-        delBtnStyle.fontFamily = "Roboto";
-        delBtnStyle.fontWeight = "400";
-        delBtnStyle.fontSize = "14px";
+        delBtn.classList.add("del-btn-style")
+        taskItems.appendChild(delBtn);
+        
         delBtn.addEventListener("click", delTask);
         function delTask() {
-            taskItems.remove();
+          taskItems.classList.add("fade-out")
+          setTimeout(() => { 
+            taskItems.remove()
+          }, 1000);
+          
         }
+
         function Done() {
             taskItems.classList.toggle("done");
         }
